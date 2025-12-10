@@ -17,7 +17,11 @@
     "pipeline:router": "node examples/pipelines/smart-router.js",
     "pipeline:refine": "node examples/pipelines/iterative-refinement.js",
     "pipeline:parallel": "node examples/pipelines/parallel-execution.js",
-    "pipeline:fullstack": "node examples/pipelines/fullstack-generator.js"
+    "pipeline:fullstack": "node examples/pipelines/fullstack-generator.js",
+    "engine:demo": "node examples/pipeline-engine-demo.js",
+    "engine:implement": "node examples/run-implement-feature.js",
+    "engine:fix-tests": "node examples/run-fix-tests.js",
+    "engine:new-service": "node examples/run-new-service.js"
   },
   "keywords": [
     "schema-icu",

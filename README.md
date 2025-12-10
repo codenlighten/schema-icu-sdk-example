@@ -7,6 +7,43 @@
 
 A comprehensive example project demonstrating [Schema.ICU](https://schema.icu)'s production-ready AI agent orchestration platform with 11 specialized agents, JSON Schema validation, and BSV cryptographic signing.
 
+## 🚀 **NEW: Schema.ICU Pipeline Engine** ⚙️
+
+**Looking for advanced AI orchestration?** Check out our new orchestration engine:
+
+### 🎯 [Schema.ICU Pipeline Engine](https://github.com/codenlighten/schema-ide)
+
+**⚠️ HONEST STATUS: Phase 1 Complete (Engine Only)**
+
+A production-grade **AI orchestration framework** with:
+
+- ⚡ **PipelineEngine** - Multi-agent workflow orchestration ✅ **BUILT**
+- 🔒 **PolicyEngine** - Schema-based security layer ✅ **BUILT**
+- 🎯 **Built-in Pipelines** - Implement features, fix tests, scaffold services ✅ **BUILT**
+- 📊 **Cryptographic Signing** - Verifiable, auditable workflows ✅ **BUILT**
+- 🔧 **CLI Tool** - `npx schema-icu pipeline run` 🚧 **PHASE 2 (In Progress)**
+- 🎨 **VS Code Extension** - Visual IDE integration ❌ **PHASE 3 (Planned)**
+
+**What it IS:** Node.js orchestration library (like Langchain, AutoGPT)  
+**What it's NOT (yet):** A full IDE (no UI, no editor, no debugging)
+
+**This repo** (`schema-icu-sdk-example`): Basic SDK examples and getting started  
+**New repo** ([`schema-ide`](https://github.com/codenlighten/schema-ide)): Pipeline engine (foundation for future IDE)
+
+```bash
+# Install the pipeline engine
+npm install @smartledger/schema-icu-ide-core
+
+# Try the demos (programmatic API only)
+npm run engine:demo          # See all features
+npm run engine:implement     # Implement a feature
+npm run engine:new-service   # Scaffold microservice
+```
+
+👉 **[Explore the Pipeline Engine →](https://github.com/codenlighten/schema-ide)**
+
+---
+
 ## 🎯 What is Schema.ICU?
 
 **Schema.ICU** is a production-ready AI platform that delivers:
@@ -56,6 +93,12 @@ npm start
 
 # Demo all 11 agents
 npm run demo
+
+# 🔥 NEW: Try the Pipeline Engine
+npm run engine:demo          # Demo all pipeline features
+npm run engine:implement     # Interactive feature implementation
+npm run engine:fix-tests     # Analyze & fix failing tests
+npm run engine:new-service   # Scaffold a microservice
 
 # Use the project manager class
 npm run pm
