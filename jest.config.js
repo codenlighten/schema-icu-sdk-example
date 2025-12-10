@@ -5,8 +5,8 @@ module.exports = {
   // Verbose output
   verbose: true,
 
-  // Test timeout (15 seconds for API calls)
-  testTimeout: 15000,
+  // Test timeout (60 seconds for API calls)
+  testTimeout: 60000,
 
   // Coverage configuration
   collectCoverageFrom: [

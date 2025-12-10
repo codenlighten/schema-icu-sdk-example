@@ -33,7 +33,7 @@ describe('ProjectManager', () => {
       expect(result.code).toBeDefined();
       expect(typeof result.code).toBe('string');
       expect(result.code.length).toBeGreaterThan(0);
-    }, 15000); // 15s timeout for API call
+    }, 60000); // 60s timeout for API call
 
     test('generateFeature should accept language parameter', async () => {
       const result = await pm.generateFeature('Create a sum function', 'Python');
@@ -42,7 +42,7 @@ describe('ProjectManager', () => {
       expect(result.code).toBeDefined();
       // Python code should contain 'def' keyword
       expect(result.code.toLowerCase()).toContain('def');
-    }, 15000);
+    }, 60000);
   });
 
   describe('Project Planning', () => {
@@ -64,7 +64,7 @@ describe('ProjectManager', () => {
       expect(firstTask.taskDescription).toBeDefined();
       expect(firstTask.estimatedTimeHours).toBeDefined();
       expect(typeof firstTask.estimatedTimeHours).toBe('number');
-    }, 20000);
+    }, 60000);
   });
 
   describe('Schema Generation', () => {
@@ -78,7 +78,7 @@ describe('ProjectManager', () => {
       const schema = result.schemaAsString || result.code;
       expect(typeof schema).toBe('string');
       expect(schema.length).toBeGreaterThan(0);
-    }, 15000);
+    }, 60000);
   });
 
   describe('Terminal Commands', () => {
@@ -88,7 +88,7 @@ describe('ProjectManager', () => {
       expect(result).toBeDefined();
       expect(result.code).toBeDefined();
       expect(typeof result.code).toBe('string');
-    }, 15000);
+    }, 60000);
   });
 
   describe('Code Improvement', () => {
@@ -101,7 +101,7 @@ describe('ProjectManager', () => {
       const improved = result.improvedCode || result.code;
       expect(typeof improved).toBe('string');
       expect(improved.length).toBeGreaterThan(0);
-    }, 15000);
+    }, 60000);
 
     test('getCodeDiff should return diff', async () => {
       const code = 'const x = 1;\nconst y = 2;\nconsole.log(x + y);';
@@ -109,7 +109,7 @@ describe('ProjectManager', () => {
       
       expect(result).toBeDefined();
       expect(result.diff || result.improvedCode || result.code).toBeDefined();
-    }, 15000);
+    }, 60000);
   });
 
   describe('Component Design', () => {
@@ -121,7 +121,7 @@ describe('ProjectManager', () => {
       expect(result.description).toBeDefined();
       expect(typeof result.name).toBe('string');
       expect(typeof result.description).toBe('string');
-    }, 15000);
+    }, 60000);
   });
 
   describe('Prompt Improvement', () => {
@@ -133,7 +133,7 @@ describe('ProjectManager', () => {
       const improved = result.improvedPrompt || result.code;
       expect(typeof improved).toBe('string');
       expect(improved.length).toBeGreaterThan('make a function'.length);
-    }, 15000);
+    }, 60000);
   });
 
   describe('GitHub Commands', () => {
@@ -142,7 +142,7 @@ describe('ProjectManager', () => {
       
       expect(result).toBeDefined();
       expect(result.githubCommands || result.code).toBeDefined();
-    }, 15000);
+    }, 60000);
   });
 
   describe('Agent Recommendation', () => {
@@ -153,7 +153,7 @@ describe('ProjectManager', () => {
       expect(result.chosenTool).toBeDefined();
       expect(typeof result.chosenTool).toBe('string');
       expect(result.reasoning).toBeDefined();
-    }, 15000);
+    }, 60000);
   });
 
   describe('General Queries', () => {
@@ -162,7 +162,7 @@ describe('ProjectManager', () => {
       
       expect(result).toBeDefined();
       expect(result.code || result).toBeDefined();
-    }, 15000);
+    }, 60000);
   });
 });
 
@@ -184,5 +184,5 @@ describe('ProjectManager Integration', () => {
     const improved = await pm.improveCode(code.code, 'performance,readability');
     expect(improved.improvedCode || improved.code).toBeDefined();
     
-  }, 45000); // 45s timeout for full workflow
+  }, 90000); // 90s timeout for full workflow
 });
