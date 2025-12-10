@@ -18,6 +18,13 @@ const rl = readline.createInterface({
 
 const client = new SchemaICU();
 
+// Check authentication before starting
+if (!client.isAuthenticated()) {
+  console.error('\n❌ Not authenticated. Please run: npx schema-icu setup');
+  console.error('   Or ensure your .env file contains valid credentials.\n');
+  process.exit(1);
+}
+
 // Color codes for terminal output
 const colors = {
   reset: '\x1b[0m',

@@ -4,6 +4,13 @@ async function main() {
   // SDK automatically loads credentials from .env
   const client = new SchemaICU();
 
+  // Check authentication
+  if (!client.isAuthenticated()) {
+    console.error('❌ Not authenticated. Please run: npx schema-icu setup');
+    console.error('   Or ensure your .env file contains valid credentials.');
+    process.exit(1);
+  }
+
   console.log('🚀 Testing Schema.ICU SDK...\n');
 
   try {

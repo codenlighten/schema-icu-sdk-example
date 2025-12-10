@@ -1,6 +1,52 @@
-# Schema.ICU Project Manager
+# Schema.ICU SDK Example
 
-A project management toolkit powered by Schema.ICU's 11 specialized AI agents with cryptographic signing and guaranteed structured outputs.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D14.0.0-brightgreen.svg)](https://nodejs.org/)
+[![Schema.ICU](https://img.shields.io/badge/Schema.ICU-Powered-blue.svg)](https://schema.icu)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Definitions-blue.svg)](./schema-icu-sdk.d.ts)
+
+A comprehensive example project demonstrating [Schema.ICU](https://schema.icu)'s production-ready AI agent orchestration platform with 11 specialized agents, JSON Schema validation, and BSV cryptographic signing.
+
+## 🎯 What is Schema.ICU?
+
+**Schema.ICU** is a production-ready AI platform that delivers:
+
+- 🎯 **Guaranteed Structure** - JSON Schema validation ensures every response is perfectly structured
+- 🔐 **Cryptographic Signing** - BSV blockchain signatures for authenticity and audit trails
+- 🤖 **11 Specialized Agents** - Purpose-built for code generation, schemas, terminal commands, and more
+- ⚡ **Cost Optimized** - Powered by GPT-5-nano at $0.05/1M tokens (96% cheaper than GPT-4)
+- 🔄 **Unified Interface** - Simple {query, context} pattern across all agents
+- 📊 **Production Ready** - 99.9% uptime SLA with comprehensive error handling
+
+## 📦 Installation & Setup
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/codenlighten/schema-icu-sdk-example.git
+cd schema-icu-sdk-example
+
+# 2. Install dependencies
+npm install
+
+# 3. Set up your Schema.ICU credentials
+npx schema-icu setup
+# Follow the prompts to enter your email and API key
+# This creates a .env file with your credentials
+
+# 4. You're ready! Try the examples
+npm start
+```
+
+### Getting Your API Key
+
+1. Visit [Schema.ICU](https://schema.icu) to create an account
+2. Choose your tier:
+   - **Free**: 21 requests/day, all 11 agents
+   - **Registered**: 200 requests/day, email support, usage analytics
+   - **Professional**: 3M requests/month, priority support, webhooks, 99.9% SLA ($49/mo)
+   - **Enterprise**: Unlimited requests, custom integrations ([contact sales](mailto:enterprise@smartledger.technology))
+3. Run `npx schema-icu setup` to configure your credentials
+4. The SDK automatically loads credentials from `.env`
 
 ## 🚀 Quick Start
 
@@ -23,14 +69,6 @@ npm run errors
 # Run tests
 npm test
 ```
-
-## ✅ Setup Complete
-
-Your environment is configured with:
-- **Tier**: Enterprise (unlimited requests)
-- **Email**: codenlighten1@gmail.com
-- **API Key**: Stored in `.env`
-- **Auto-load**: SDK automatically loads credentials
 
 ## 📚 11 Specialized Agents
 
@@ -315,16 +353,33 @@ All agents return a consistent structure:
 
 ## 🔗 Links
 
-- [Schema.ICU Website](https://schema.icu)
-- [API Documentation](https://schema.icu/docs/API_DOCS.html)
-- [GitHub Repository](https://github.com/codenlighten/schema-icu)
-- [SmartLedger](https://smartledger.technology/)
+- **Schema.ICU Platform**: https://schema.icu
+- **API Documentation**: https://schema.icu/docs/API_DOCS.html
+- **SDK Repository**: https://github.com/codenlighten/schema-icu
+- **Example Repository**: https://github.com/codenlighten/schema-icu-sdk-example
+- **Status Page**: https://status.schema.icu
+- **SmartLedger Technologies**: https://smartledger.technology
 
-## 💡 Support
+## 💡 Support & Community
 
-- **Enterprise Support**: support@smartledger.technology
+- **Get Started Free**: https://schema.icu/register.html (21 requests/day)
 - **Documentation**: https://schema.icu/docs
-- **Status Page**: https://status.schema.icu/
+- **Examples**: https://schema.icu/examples
+- **Report Issues**: https://github.com/codenlighten/schema-icu-sdk-example/issues
+- **Support Email**: support@smartledger.technology
+- **Enterprise Sales**: enterprise@smartledger.technology
+
+## 📄 About
+
+**Schema.ICU** is brought to you by [SmartLedger Technologies](https://smartledger.technology), a leader in blockchain and AI solutions. The platform leverages BSV blockchain for cryptographic signing and GPT-5-nano for cost-effective, structured AI outputs.
+
+**Author**: Gregory Ward, Co-founder & CTO  
+**License**: MIT (this example project)  
+**Copyright**: © 2025 SmartLedger Technologies
+
+---
+
+Made with ❤️ by the SmartLedger team
 
 ---
 

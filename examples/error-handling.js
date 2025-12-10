@@ -111,7 +111,7 @@ async function demonstrateErrorHandling() {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 30000); // 30s timeout
     
-    const result = await client.terminalAgent.generate(
+    const _result = await client.terminalAgent.generate(
       'List all files in current directory',
       { os: 'windows', shell: 'bash' }
     );
@@ -213,7 +213,7 @@ async function demonstrateErrorHandling() {
 
   try {
     // Simulate an error for demonstration
-    const result = await client.promptImprover.improve('test');
+    const _result = await client.promptImprover.improve('test');
     console.log('✅ No errors encountered\n');
   } catch (error) {
     const errorInfo = handleSchemaICUError(error);

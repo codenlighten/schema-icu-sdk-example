@@ -1,5 +1,5 @@
 {
-  "name": "project-mgr",
+  "name": "schema-icu-sdk-example",
   "version": "1.0.0",
   "description": "Project management tool powered by Schema.ICU's 11 specialized AI agents",
   "main": "index.js",
@@ -10,21 +10,40 @@
     "cli": "node cli.js",
     "errors": "node examples/error-handling.js",
     "test": "jest --verbose",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "lint": "eslint .",
+    "format": "prettier --write \"**/*.{js,json,md}\""
   },
   "keywords": [
     "schema-icu",
     "ai",
     "project-management",
-    "code-generation"
+    "code-generation",
+    "llm",
+    "structured-output",
+    "cryptographic-signing"
   ],
   "author": "codenlighten1@gmail.com",
-  "license": "ISC",
+  "license": "MIT",
   "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codenlighten/schema-icu-sdk-example.git"
+  },
+  "bugs": {
+    "url": "https://github.com/codenlighten/schema-icu-sdk-example/issues"
+  },
+  "homepage": "https://github.com/codenlighten/schema-icu-sdk-example#readme",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
   "dependencies": {
     "@smartledger/schema-icu-sdk": "^1.0.2"
   },
   "devDependencies": {
-    "jest": "^30.2.0"
+    "eslint": "^8.57.0",
+    "jest": "^30.2.0",
+    "prettier": "^3.1.0"
   }
 }
