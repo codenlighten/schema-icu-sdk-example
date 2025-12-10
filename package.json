@@ -7,13 +7,24 @@
     "start": "node index.js",
     "demo": "node examples/all-agents.js",
     "pm": "node examples/project-manager.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cli": "node cli.js",
+    "errors": "node examples/error-handling.js",
+    "test": "jest --verbose",
+    "test:watch": "jest --watch"
   },
-  "keywords": ["schema-icu", "ai", "project-management", "code-generation"],
+  "keywords": [
+    "schema-icu",
+    "ai",
+    "project-management",
+    "code-generation"
+  ],
   "author": "codenlighten1@gmail.com",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
     "@smartledger/schema-icu-sdk": "^1.0.2"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0"
   }
 }

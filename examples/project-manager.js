@@ -87,6 +87,73 @@ class ProjectManager {
     
     return result.success ? result.data : result;
   }
+
+  /**
+   * Ask a general question
+   */
+  async askQuestion(question) {
+    console.log('🤔 Processing question...\n');
+    
+    const result = await this.client.base.query(question);
+    
+    return result.success ? result.data : result;
+  }
+
+  /**
+   * Design a modular component
+   */
+  async designComponent(description) {
+    console.log('🎨 Designing component...\n');
+    
+    const result = await this.client.boxDesigner.design(description);
+    
+    return result.success ? result.data : result;
+  }
+
+  /**
+   * Improve a prompt
+   */
+  async improvePrompt(prompt) {
+    console.log('📝 Improving prompt...\n');
+    
+    const result = await this.client.promptImprover.improve(prompt);
+    
+    return result.success ? result.data : result;
+  }
+
+  /**
+   * Get code diff for improvements
+   */
+  async getCodeDiff(code, focusAreas = ['readability', 'performance'], language = 'JavaScript') {
+    console.log('🔍 Generating code diff...\n');
+    
+    const result = await this.client.diffImprover.improve(code, { language, focusAreas });
+    
+    return result.success ? result.data : result;
+  }
+
+  /**
+   * Recommend best agent for a task
+   */
+  async recommendAgent(task) {
+    console.log('🎯 Recommending best agent...\n');
+    
+    const availableTools = [
+      { name: 'codeGenerator', description: 'Generate production-ready code' },
+      { name: 'schemaGenerator', description: 'Create JSON schemas' },
+      { name: 'terminalAgent', description: 'Generate shell commands' },
+      { name: 'codeImprover', description: 'Optimize existing code' },
+      { name: 'diffImprover', description: 'Code improvements via diffs' },
+      { name: 'boxDesigner', description: 'Design modular components' },
+      { name: 'projectPlanner', description: 'Plan projects with estimates' },
+      { name: 'promptImprover', description: 'Optimize prompts' },
+      { name: 'githubAgent', description: 'Generate GitHub CLI commands' }
+    ];
+    
+    const result = await this.client.toolChoice.recommend(task, { availableTools });
+    
+    return result.success ? result.data : result;
+  }
 }
 
 // Example usage

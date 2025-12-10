@@ -13,6 +13,15 @@ npm run demo
 
 # Use the project manager class
 npm run pm
+
+# Interactive CLI
+npm run cli
+
+# Error handling examples
+npm run errors
+
+# Run tests
+npm test
 ```
 
 ## ✅ Setup Complete
@@ -138,10 +147,17 @@ project-mgr/
 ├── .env                          # API credentials (auto-configured)
 ├── .gitignore                    # Git ignore patterns
 ├── package.json                  # Dependencies & scripts
+├── cli.js                        # Interactive CLI tool
 ├── index.js                      # Quick test (3 agents)
+├── schema-icu-sdk.d.ts          # TypeScript definitions
 ├── examples/
 │   ├── all-agents.js            # Demo all 11 agents
-│   └── project-manager.js       # Reusable ProjectManager class
+│   ├── project-manager.js       # Reusable ProjectManager class
+│   ├── error-handling.js        # Error handling patterns
+│   └── outputs/                 # Sample agent responses
+│       └── README.md
+├── tests/
+│   └── project-manager.test.js  # Unit tests
 └── README.md                     # This file
 ```
 
@@ -179,6 +195,90 @@ const improved = await pm.improveCode(
   'performance, readability',
   'JavaScript'
 );
+
+// Get code diff
+const diff = await pm.getCodeDiff(codeString, ['readability']);
+
+// Design component
+const component = await pm.designComponent('Auth module');
+
+// Improve prompt
+const betterPrompt = await pm.improvePrompt('make a function');
+
+// Get GitHub workflow
+const ghCommands = await pm.getGitHubWorkflow('Create PR');
+
+// Recommend agent
+const recommendation = await pm.recommendAgent('I need to generate code');
+
+// Ask question
+const answer = await pm.askQuestion('What is a closure?');
+```
+
+## 🛡️ Error Handling
+
+See `examples/error-handling.js` for comprehensive error handling patterns:
+
+```bash
+npm run errors
+```
+
+Includes:
+- Authentication checks
+- Retry logic with exponential backoff
+- Response validation
+- Missing context handling
+- Network error handling
+- Rate limit handling
+- Graceful degradation
+- Comprehensive error categorization
+
+## 🎮 Interactive CLI
+
+Launch an interactive CLI to use all agents:
+
+```bash
+npm run cli
+```
+
+Available commands:
+- `/code <query>` - Generate code
+- `/schema <query>` - Generate JSON schema
+- `/terminal <query>` - Get terminal command
+- `/improve <code>` - Improve code
+- `/plan <project>` - Plan a project
+- `/prompt <text>` - Improve a prompt
+- `/github <task>` - Get GitHub CLI commands
+- `/box <component>` - Design modular component
+- `/choose <task>` - Recommend best agent
+- `/ask <question>` - General query
+- `/help` - Show all commands
+
+## 🧪 Testing
+
+Run the test suite:
+
+```bash
+npm test           # Run all tests
+npm run test:watch # Watch mode
+```
+
+Tests include:
+- Unit tests for ProjectManager methods
+- Integration tests for full workflows
+- API response validation
+- Error handling verification
+
+## 📘 TypeScript Support
+
+TypeScript definitions included in `schema-icu-sdk.d.ts`:
+
+```typescript
+import { SchemaICU, CodeGeneratorData } from '@smartledger/schema-icu-sdk';
+
+const client = new SchemaICU();
+const result = await client.codeGenerator.generate('Create hello function', { language: 'JavaScript' });
+// Full type safety and autocomplete
 ```
 
 ## 🔐 Key Features
