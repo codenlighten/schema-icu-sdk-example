@@ -1,0 +1,37 @@
+{
+  "components": {
+    "debounce": {
+      "data": {
+        "code": "/**\n * Debounce a function so it only runs after a specified delay has elapsed\n * since the last invocation.\n * @param {Function} fn - The function to debounce\n * @param {number} delay - Delay in milliseconds\n * @param {boolean} [immediate=false] - If true, trigger on the leading edge, instead of on the trailing\n * @returns {Function} Debounced function\n */\nfunction debounce(fn, delay, immediate = false) {\n  let timeoutId;\n  return function debounced(...args) {\n    const context = this;\n\n    const later = () => {\n      timeoutId = null;\n      if (!immediate) {\n        fn.apply(context, args);\n      }\n    };\n\n    const callNow = immediate && !timeoutId;\n\n    clearTimeout(timeoutId);\n    timeoutId = setTimeout(later, delay);\n\n    if (callNow) {\n      fn.apply(context, args);\n    }\n  };\n}\n\n// Usage example:\n// const onResize = debounce(() => console.log('Resized'), 200);\n// window.addEventListener('resize', onResize);\n",
+        "missingContext": [],
+        "reasoning": "Implemented a classic debounce utility that postpones function execution until after a period of inactivity. Included optional leading-edge execution (immediate). The function uses a closure to hold a timer between calls and supports arbitrary arguments and this-context via apply.",
+        "language": "javascript",
+        "complexity": "Time per call: O(1); Space: O(1) (excluding the space for the timer and closure)"
+      },
+      "duration": 26241,
+      "success": true
+    },
+    "throttle": {
+      "data": {
+        "code": "/**\n * Simple throttle implementation in JavaScript.\n * Returns a wrapper function that ensures `fn` is invoked\n * at most once every `delay` milliseconds.\n *\n * Notes:\n * - The wrapper preserves `this` context and arguments.\n * - Intermediate calls within the delay window are ignored (no trailing call).\n */\nfunction throttle(fn, delay) {\n  if (typeof fn !== 'function') {\n    throw new TypeError('throttle expects a function');\n  }\n  if (typeof delay !== 'number' || delay < 0) {\n    delay = 0;\n  }\n\n  let lastCall = 0;\n\n  return function throttled(...args) {\n    const now = Date.now();\n    const context = this;\n    if (now - lastCall >= delay) {\n      lastCall = now;\n      fn.apply(context, args);\n    }\n  };\n}\n\n// Example usage:\n// function log(msg) {\n//   console.log(msg, Date.now());\n// }\n// const thr = throttle(log, 1000);\n// thr('A'); // logs immediately\n// thr('B'); // ignored if called within 1s of previous call\n// setTimeout(() => thr('C'), 1200); // logs after ~1.2s\n",
+        "missingContext": [],
+        "reasoning": "Implemented a minimal leading-edge throttle: it allows the wrapped function to run immediately on first call, then suppresses subsequent calls until delay has elapsed. This keeps implementation straightforward and avoids scheduling trailing calls. It preserves the original `this` context and arguments. If `delay` is invalid, it defaults to 0, effectively making it run as a normal function call.",
+        "language": "javascript",
+        "complexity": "Time per invocation: O(1). Space complexity: O(1) additional state."
+      },
+      "duration": 19967,
+      "success": true
+    },
+    "memoize": {
+      "data": {
+        "code": "/**\n * A simple memoize function\n * Caches results of a function based on its arguments.\n * Note: This uses JSON.stringify(args) as the cache key, which works best for\n * primitive/JSON-serializable arguments. If your function depends on 'this' or\n * non-serializable args, you may need a more robust key or binding strategy.\n */\nfunction memoize(fn) {\n  const cache = new Map();\n  return function(...args) {\n    const key = JSON.stringify(args);\n    if (cache.has(key)) {\n      return cache.get(key);\n    }\n    // Preserve 'this' context for methods; note that this simple key does not\n    // differentiate by 'this'. For methods with varying this, consider binding\n    // or including context in the key.\n    const result = fn.apply(this, args);\n    cache.set(key, result);\n    return result;\n  };\n}\n\n// Example: an expensive computation (simulated with a heavy loop)\nfunction heavyComputation(n) {\n  let acc = 0;\n  for (let i = 0; i < 1_000_000; i++) {\n    acc += Math.sqrt(n + i);\n  }\n  return acc;\n}\n\nconst memoHeavyComputation = memoize(heavyComputation);\n\nconsole.log(memoHeavyComputation(42)); // computed on first call\nconsole.log(memoHeavyComputation(42)); // returned from cache\n",
+        "missingContext": [],
+        "reasoning": "This is a straightforward memoization utility: it caches results by a serialized key derived from the function arguments. It preserves the function's ability to use its 'this' context by calling fn.apply(this, args). However, since the cache key only considers arguments, functions that rely on changing 'this' or external state may produce incorrect results if called with the same arguments but different context. For simple pure functions or methods bound to a stable context, this approach is effective and keeps the implementation minimal.",
+        "language": "javascript",
+        "complexity": "Time complexity: Each unique set of arguments is computed once; subsequent calls with the same arguments are O(1) due to cache lookup. Worst-case time for the first call is the original function's complexity. Space complexity: O(m) where m is the number of unique argument tuples cached."
+      },
+      "duration": 28524,
+      "success": true
+    }
+  }
+}
